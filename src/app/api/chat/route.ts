@@ -84,6 +84,9 @@ export async function POST(req: NextRequest) {
 
   const data = await response.json();
 
+  console.log("Anthropic response status:", response.status);
+console.log("Anthropic response body:", JSON.stringify(data));
+
   if (!response.ok) {
     return NextResponse.json({ error: data.error?.message ?? "APIエラー" }, { status: response.status });
   }
